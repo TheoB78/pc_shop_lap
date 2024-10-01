@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ShipmentController {
@@ -22,5 +23,11 @@ public class ShipmentController {
     @PostMapping("addShipment")
     public Shipment addShipment(@RequestBody Shipment shipment) {
         return shipmentService.save(shipment);
+    }
+
+    @CrossOrigin(origins = "http://localhost:5173")
+    @GetMapping("shipment")
+    public Optional<Shipment> getShipmentById(@RequestParam Integer id) {
+        return shipmentService.getShipmentById(id);
     }
 }

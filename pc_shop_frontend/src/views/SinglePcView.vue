@@ -60,9 +60,11 @@
 import { ref, onMounted, reactive } from 'vue'
 import PcService from '@/services/PcService'
 import Pc from '@/models/Pc'
+import Shipment_item from '@/models/Shipment_item'
 import { useRoute } from 'vue-router'
 import HeaderComponent from '@/components/HeaderComponent.vue'
 import AdditionService from '@/services/AdditionService'
+import Addition from '@/models/Addition'
 
 const pcService = new PcService()
 const additionService = new AdditionService()
@@ -85,7 +87,20 @@ function getAllAdditions() {
 }
 
 function addToCart() {
-  localStorage.setItem(`item-${pc.value.id}`, pc.value.id)
+  let items
+
+  if (JSON.parse(localStorage.getItem('items')!)) items = JSON.parse(localStorage.getItem('items')!)
+  else items = new Array()
+
+  let data = {
+    pc: pc.value,
+    quantity: 1,
+    additions: new Array<Addition>()
+  }
+
+  items.push(new Shipment_item(data))
+
+  localStorage.setItem('items', JSON.stringify(items))
 }
 </script>
 

@@ -3,6 +3,8 @@ package com.example.pc_shop_backend.service;
 import com.example.pc_shop_backend.model.Pc;
 import com.example.pc_shop_backend.repository.PcRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

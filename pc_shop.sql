@@ -50,8 +50,8 @@ values
 
 create table shipment (
 id int not null auto_increment,
-reseller_id int not null,
-date date not null,
+reseller_id int,
+date date,
 primary key (id),
 foreign key (reseller_id) references reseller(id)
 );
@@ -73,9 +73,9 @@ select * from shipment;
 
 create table shipment_item (
 id int not null auto_increment,
-shipment_id int not null,
-pc_id int not null,
-quantity int not null,
+shipment_id int,
+pc_id int,
+quantity int,
 primary key (id),
 foreign key (pc_id) references pc(id),
 foreign key (shipment_id) references shipment(id)

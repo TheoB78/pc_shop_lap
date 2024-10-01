@@ -22,7 +22,7 @@
             <RouterLink to="/cart" class="nav-link" href="#">Warenkorb</RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink to="/pc/1" class="nav-link" href="#">Bestellungen</RouterLink>
+            <RouterLink to="/account" class="nav-link" href="#">Account</RouterLink>
           </li>
         </ul>
       </div>

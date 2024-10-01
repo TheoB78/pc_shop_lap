@@ -22,10 +22,10 @@ public class Shipment {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "reseller_id", nullable = false)
+    @JoinColumn(name = "reseller_id")
     private Reseller reseller;
 
-    @OneToMany(mappedBy = "shipment")
+    @OneToMany(mappedBy = "shipment", cascade = CascadeType.ALL)
     private List<Shipment_item> shipment_items;
 
 }
